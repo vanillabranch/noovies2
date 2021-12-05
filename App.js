@@ -9,6 +9,7 @@ import {
     DarkTheme,
     DefaultTheme} from "@react-navigation/native";
 import Tabs from "./navigation/Tabs";
+import Stack from "./navigation/Stack";
 
 const loadFonts = (fonts) => fonts.map(font => Font.loadAsync(font));
 
@@ -41,7 +42,7 @@ export default function App() {
     //다크모드를 간편하게 적용하고 싶다면 theme={isDark?DarkTheme:DefaultTheme} 를 추가하여 사용할수도 있따.
     return (
         <NavigationContainer >
-            <Tabs/>
+            <Stack/>
         </NavigationContainer>
     )
 
