@@ -2,6 +2,7 @@ import React from 'react';
 import {createNativeStackNavigator} from "@react-navigation/native-stack";
 import {View, Text} from 'react-native';
 import {TouchableOpacity} from "react-native-gesture-handler";
+import {YELLOW_COLOR} from "../color";
 
 const ScreenOne = ({navigation : {navigate}}) => (
     <TouchableOpacity onPress={()=> navigate("Two")}>
@@ -29,10 +30,18 @@ const NativeStack = createNativeStackNavigator();
 //대량 반환은 아래처럼 브레이스 후 return , 그냥 이걸 습관화 하자. 그게 나을듯.
 const Stack = () => {
     return (
-        <NativeStack.Navigator>
-            <NativeStack.Screen name={"One"} component={ScreenOne}/>
+        <NativeStack.Navigator
+            screenOptions={{
+                headerTintColor:YELLOW_COLOR,
+                animation:"flip"
+            }}
+        >
+            <NativeStack.Screen
+                name={"One"}
+                component={ScreenOne}
+            />
             <NativeStack.Screen name={"Two"} component={ScreenTwo}/>
-            <NativeStack.Screen name={"Three"} component={ScreenThree}/>
+            <NativeStack.Screen name={"Three"} component={ScreenThree} options={{presentation:"modal",}}/>
         </NativeStack.Navigator>
     );
 }
